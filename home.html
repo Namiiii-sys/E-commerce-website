@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nimo Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+      <header>
+        <h1>Quirky<span><u>Cart</u></span></h1>
+        <ul>
+            <li><a href="/index.html">Login</a></li>
+            <li><a href="/home.html">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact us</a></li>
+        </ul>
+      </header>
+    
+
+  <main>
+    <section id="categories">
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 QuirkyCart. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const apiBaseUrl = "https://fakestoreapi.com/products/categories";
+
+
+
+const categoryImages = {
+    electronics: "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
+    "men's clothing": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    "women's clothing": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
+    jewelery: "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
+  };
+  
+  async function fetchCategories() {
+    try {
+      const response = await fetch(apiBaseUrl);
+      const categories = await response.json();
+  
+      const categoriesContainer = document.getElementById("categories");
+  
+      categories.forEach((category) => {
+        const card = document.createElement("div");
+        card.classList.add("category-card");
+  
+        const imageUrl = categoryImages[category];
+  
+        card.innerHTML = `
+          <img src="${imageUrl}" alt="${category}">
+          <h3>${category.charAt(0).toUpperCase() + category.slice(1)}</h3>
+          <a href="category.html?category=${category}">Explore</a>
+        `;
+  
+        categoriesContainer.appendChild(card);
+      });
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    }
+  }
+  
+  fetchCategories();
+  </script>
+</body>
+</html>

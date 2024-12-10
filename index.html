@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - QuirkyCart</title>
+  <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f3f4f6;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: #333;
+      }
+      
+      header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      header h1 {
+        font-size: 2.5rem;
+        color: #1e3a8a;
+      }
+      header h1 span{
+        font-size: 2.5rem;
+        color: #000000;
+      }
+      
+      header p {
+        color: #6b7280;
+      }
+      
+      .login-container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+      
+      .login-container h2 {
+        color: #1e40af;
+        margin-bottom: 20px;
+      }
+      
+      .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      
+      label {
+        font-size: 1rem;
+        color: #1e3a8a;
+      }
+      
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-top: 5px;
+        font-size: 1rem;
+      }
+      
+      button {
+        background-color: #1e3a8a;
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 10px;
+      }
+      
+      button:hover {
+        background-color: #2563eb;
+      }
+      
+      #error-message {
+        color: #e11d48;
+        font-size: 0.9rem;
+        margin-top: 10px;
+      }
+      
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Quirky<span><u>Cart</u></span></h1>
+    <p>Login to continue shopping!</p>
+  </header>
+
+  <main>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <p id="error-message"></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 QuirkyCart. All Rights Reserved.</p>
+  </footer>
+
+  <script src="login.js"></script>
+</body>
+</html>

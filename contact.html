@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us-QuirkyCart</title>
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+  <header>
+    <a href="/home.html">
+      <h1>Quirky<span><u>Cart</u></span></h1>
+    </a>
+  </header>
+  <main>
+    <section class="contact-container">
+      <h2>Contact Us</h2>
+      
+      <div class="developer-card">
+        <img src="whatsapp.jpg" alt="Developer Image" class="developer-img">
+        <div class="developer-info">
+          <h3>Namita Mehra</h3>
+          <p><strong>Program:</strong> B.Sc. Hons Computer Science</p>
+          <p><strong>Year:</strong> 1st Year</p>
+          <p><strong>Roll Number:</strong> 24572</p>
+          <p><strong>Email: </strong>namita.24572@sscbs.du.ac.in</p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <div id="name-error" style="color: red;"></div>
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <div id="email-error" style="color: red;"></div>
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select name="Category" id="category">
+              <option value="Problem">Problem</option>
+              <option value="Help">Help</option>
+              <option value="Feedback" selected>Feedback</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
+            <div id="message-error" style="color: red;"></div>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2024 QuirkyCart. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const nameError = document.getElementById('name-error');
+      const emailError = document.getElementById('email-error');
+      const messageError = document.getElementById('message-error');
+
+      let isValid = true;
+
+      nameError.textContent = "";
+      emailError.textContent = "";
+      messageError.textContent = "";
+
+      if (!name || !/^[a-zA-Z\s]+$/.test(name)) {
+        nameError.textContent = "Name can only contain alphabets.";
+        isValid = false;
+      } else if (name.length < 3) {
+        nameError.textContent = "Name is too short (minimum 3 characters).";
+        isValid = false;
+      }
+
+      if (!email || !email.includes("@")) {
+        emailError.textContent = "Email must contain '@'.";
+        isValid = false;
+      } else if (email.length < 5) {
+        emailError.textContent = "Email is too short (minimum 5 characters).";
+        isValid = false;
+      }
+
+      if (!message) {
+        messageError.textContent = "Message is required.";
+        isValid = false;
+      } else if (message.length < 10) {
+        messageError.textContent = "Message is too short (minimum 10 characters).";
+        isValid = false;
+      }
+
+      if (isValid) {
+        alert("Thank you for your message! We will get back to you soon.");
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
